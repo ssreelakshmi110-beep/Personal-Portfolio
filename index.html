@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sreelakshmi.S — B.Tech Computer Science and Engineering student, curious builder and aspiring software professional.">
+<title>Sreelakshmi.S | Portfolio</title>
+<style>
+:root {
+  --site-primary: #6658d3;
+  --site-secondary: #e9e6ff;
+  --site-background: #f7f7fc;
+  --site-on-primary: #ffffff;
+  --site-on-secondary: #29234f;
+  --site-on-background: #202039;
+  --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-font-heading: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+  --surface: light-dark(#ffffff, #191827);
+  --surface-soft: light-dark(#f0effb, #242238);
+  --ink: light-dark(#202039, #f2f0ff);
+  --muted: light-dark(#696981, #b8b5cc);
+  --line: light-dark(#e7e5f1, #39364d);
+  color-scheme: light dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--ink); }
+#app { min-height: 100vh; width: 100%; background-color: var(--site-background); color: var(--site-on-background); border-radius: 0; overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+.wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+.nav { display:flex; align-items:center; justify-content:space-between; padding: 24px 0; }
+.logo { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.04em; font-size:1.15rem; }
+.logo-mark { width:36px; height:36px; display:grid; place-items:center; border-radius:12px; background:var(--site-primary); color:var(--site-on-primary); font-weight:800; }
+.nav-links { display:flex; gap:28px; color:var(--muted); font-size:.91rem; }
+.nav-links a:hover { color:var(--site-primary); }
+.menu-btn { display:none; border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:10px; padding:8px 12px; }
+.hero { position:relative; display:grid; grid-template-columns:1.2fr .8fr; align-items:center; gap:48px; padding:76px 0 92px; }
+.eyebrow { display:inline-flex; align-items:center; gap:9px; padding:8px 13px; border-radius:999px; background:var(--site-secondary); color:var(--site-on-secondary); font-size:.8rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+.dot { width:7px; height:7px; background:#36a77a; border-radius:50%; box-shadow:0 0 0 4px #36a77a22; }
+h1,h2,h3 { font-family:var(--site-font-heading); }
+h1 { font-size:clamp(3.1rem, 7vw, 5.7rem); line-height:.98; letter-spacing:-.075em; margin:24px 0 20px; color:var(--ink); }
+.gradient { color:var(--site-primary); }
+.hero-copy { color:var(--muted); font-size:1.08rem; line-height:1.8; max-width:600px; }
+.actions { display:flex; flex-wrap:wrap; gap:13px; margin-top:30px; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; border-radius:13px; padding:13px 19px; font-size:.92rem; font-weight:700; border:1px solid var(--line); transition:transform .2s, box-shadow .2s; }
+.btn:hover { transform:translateY(-2px); box-shadow:0 10px 25px #3930801c; }
+.btn-primary { background:var(--site-primary); color:var(--site-on-primary); border-color:var(--site-primary); }
+.btn-quiet { background:var(--surface); color:var(--ink); }
+.hero-art { min-height:360px; position:relative; display:grid; place-items:center; }
+.orbit { width:min(330px, 80vw); aspect-ratio:1; border-radius:50%; background:radial-gradient(circle at 35% 30%, #ffffff 0 4%, #dcd7ff 5% 22%, #aaa0f4 55%, #6b5bd4 100%); box-shadow: inset -22px -25px 45px #4436a855, 0 35px 75px #6152c52b; position:relative; }
+.orbit:before,.orbit:after { content:""; position:absolute; border:1px solid #8b80df88; border-radius:50%; inset:-24px; transform:rotate(-25deg) scaleY(.43); }
+.orbit:after { inset:-52px; transform:rotate(48deg) scaleY(.36); border-color:#b3adee88; }
+.orbit-core { position:absolute; inset:0; display:grid; place-items:center; font-size:5.8rem; font-weight:900; letter-spacing:-.1em; color:#fff; text-shadow:0 5px 24px #3e328c66; }
+.float-card { position:absolute; padding:12px 15px; border:1px solid var(--line); background:var(--surface); border-radius:15px; box-shadow:0 14px 35px #27204d16; font-size:.82rem; font-weight:700; }
+.float-card small { display:block; color:var(--muted); font-weight:500; margin-top:3px; }
+.float-one { top:35px; right:0; }.float-two { bottom:42px; left:-5px; }
+.section { padding:76px 0; }
+.section-head { margin-bottom:34px; }
+.kicker { color:var(--site-primary); text-transform:uppercase; letter-spacing:.14em; font-size:.75rem; font-weight:800; }
+h2 { margin:10px 0 0; font-size:clamp(2rem, 4vw, 3rem); letter-spacing:-.06em; color:var(--ink); }
+.lead { max-width:680px; color:var(--muted); line-height:1.8; margin-top:14px; }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.panel { background:var(--surface); border:1px solid var(--line); border-radius:calc(24px * var(--site-radius-scale)); padding:calc(28px * var(--site-spacing-scale)); }
+.panel p { color:var(--muted); line-height:1.8; margin:0; }
+.fact-list { display:grid; gap:14px; }
+.fact { display:flex; justify-content:space-between; gap:15px; padding-bottom:13px; border-bottom:1px solid var(--line); font-size:.92rem; }
+.fact:last-child { border:0; padding:0; }.fact span:first-child { color:var(--muted); }.fact strong { text-align:right; }
+.skills-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.skill { padding:19px 16px; border-radius:16px; background:var(--surface); border:1px solid var(--line); font-weight:700; font-size:.9rem; display:flex; align-items:center; gap:11px; }
+.skill-icon { display:grid; place-items:center; width:34px; height:34px; border-radius:11px; background:var(--site-secondary); color:var(--site-primary); font-size:.85rem; }
+.projects { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+.project { background:var(--surface); border:1px solid var(--line); border-radius:22px; padding:26px; transition:transform .2s, box-shadow .2s; }
+.project:hover { transform:translateY(-4px); box-shadow:0 18px 35px #28204b12; }
+.project-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; }
+.project-icon { width:48px; height:48px; border-radius:15px; background:var(--site-secondary); color:var(--site-primary); display:grid; place-items:center; font-size:1.35rem; }
+.project-tag { font-size:.72rem; font-weight:700; color:var(--muted); padding:7px 10px; background:var(--surface-soft); border-radius:999px; }
+.project h3 { font-size:1.25rem; letter-spacing:-.035em; margin:0 0 10px; }.project p { color:var(--muted); line-height:1.7; margin:0; }
+.interest-grid { display:flex; flex-wrap:wrap; gap:11px; }
+.pill { background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:12px 17px; font-size:.9rem; font-weight:650; }
+.objective { background:var(--site-primary); color:var(--site-on-primary); border-radius:26px; padding:42px; position:relative; overflow:hidden; }
+.objective:after { content:"✳"; position:absolute; right:35px; top:-36px; font-size:180px; opacity:.12; }
+.objective .kicker { color:#e4e0ff; }.objective h2 { color:#fff; max-width:680px; font-size:clamp(1.8rem,3.5vw,2.7rem); line-height:1.2; }.objective p { max-width:700px; color:#eeecff; line-height:1.8; }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch; }
+.contact-card { display:flex; gap:15px; align-items:center; background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:20px; }
+.contact-icon { width:42px; height:42px; flex:0 0 42px; display:grid; place-items:center; border-radius:13px; background:var(--site-secondary); color:var(--site-primary); }
+.contact-card small { display:block; color:var(--muted); margin-bottom:4px; }.contact-card strong { font-size:.93rem; overflow-wrap:anywhere; }
+footer { border-top:1px solid var(--line); padding:26px 0; color:var(--muted); font-size:.85rem; }
+.footer-inner { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+.reveal { opacity:0; transform:translateY(18px); transition:opacity .65s ease, transform .65s ease; }.reveal.visible { opacity:1; transform:translateY(0); }
+@media (max-width:760px) {
+ .wrap { width:min(100% - 34px, 560px); }
+ .nav-links { display:none; position:absolute; z-index:5; top:75px; right:17px; left:17px; padding:18px; border:1px solid var(--line); border-radius:16px; background:var(--surface); flex-direction:column; gap:17px; }
+ .nav-links.open { display:flex; }.menu-btn { display:block; }
+ .hero { grid-template-columns:1fr; padding:50px 0 65px; gap:25px; }.hero-art { min-height:300px; }.orbit { width:245px; }.orbit-core { font-size:4.5rem; }.float-one { right:4px; top:18px; }.float-two { left:0; bottom:20px; }
+ .section { padding:56px 0; }.about-grid,.contact-grid,.projects { grid-template-columns:1fr; }.skills-grid { grid-template-columns:repeat(2,1fr); gap:10px; }.skill { padding:14px 11px; font-size:.82rem; }.objective { padding:29px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *,*:before,*:after { transition:none !important; animation:none !important; } .reveal { opacity:1; transform:none; } }
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="logo" href="#home"><span class="logo-mark">S.</span><span>Sreelakshmi.S<span class="gradient">.</span></span></a>
+      <div class="nav-links" id="navLinks"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#interests">Interests</a><a href="#contact">Contact</a></div>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    </nav>
+  </header>
+  <main>
+    <section class="wrap hero" id="home">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> B.Tech CSE · Second Year</div>
+        <h1>Curious mind.<br><span class="gradient">Creative</span> coder.</h1>
+        <p class="hero-copy">Hi, I’m Sreelakshmi.S — a Computer Science and Engineering student at JCET, exploring technology, building projects and turning ideas into useful experiences.</p>
+        <div class="actions"><a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a><a class="btn btn-quiet" href="#contact">Get in touch <span aria-hidden="true">→</span></a></div>
+      </div>
+      <div class="hero-art" aria-label="Abstract portfolio illustration">
+        <div class="orbit"><div class="orbit-core">S.</div></div>
+        <div class="float-card float-one">Always learning <small>One line of code at a time</small></div>
+        <div class="float-card float-two">✦ Build · Learn · Create <small>Curiosity is my superpower</small></div>
+      </div>
+    </section>
+    <section class="section" id="about">
+      <div class="wrap reveal">
+        <div class="section-head"><div class="kicker">A little about me</div><h2>Learning by making.</h2><p class="lead">I’m passionate about technology, programming, creativity and learning new skills. I enjoy exploring new technologies, solving problems and developing projects that strengthen my technical knowledge.</p></div>
+        <div class="about-grid">
+          <article class="panel"><p>As a second-year B.Tech Computer Science and Engineering student, I’m building a strong foundation in programming and software development. I like combining logical thinking with creative ideas, and I’m excited to keep growing through hands-on projects and new challenges.</p></article>
+          <article class="panel"><div class="fact-list"><div class="fact"><span>Degree</span><strong>Bachelor of Technology</strong></div><div class="fact"><span>Department</span><strong>Computer Science & Engineering</strong></div><div class="fact"><span>College</span><strong>JCET</strong></div><div class="fact"><span>Current year</span><strong>Second Year</strong></div></div></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="skills" style="background:var(--surface-soft)">
+      <div class="wrap reveal"><div class="section-head"><div class="kicker">My toolkit</div><h2>Skills I’m growing.</h2><p class="lead">A mix of programming fundamentals, web technologies and tools I use to learn and build.</p></div>
+        <div class="skills-grid">
+          <div class="skill"><span class="skill-icon">C</span>C Programming</div><div class="skill"><span class="skill-icon">Py</span>Python</div><div class="skill"><span class="skill-icon">5</span>HTML & CSS</div><div class="skill"><span class="skill-icon">JS</span>JavaScript <small style="color:var(--muted)">(learning)</small></div><div class="skill"><span class="skill-icon">DS</span>Data Structures</div><div class="skill"><span class="skill-icon">⌘</span>Git & GitHub</div><div class="skill"><span class="skill-icon">✳</span>Problem Solving</div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="projects">
+      <div class="wrap reveal"><div class="section-head"><div class="kicker">Selected work</div><h2>Projects & practice.</h2><p class="lead">Small steps that help me turn concepts into practical skills.</p></div>
+        <div class="projects">
+          <article class="project"><div class="project-top"><div class="project-icon">▤</div><span class="project-tag">Web development</span></div><h3>Student Notes Management System</h3><p>A web-based project designed to help students organise, store and access their academic notes easily.</p></article>
+          <article class="project"><div class="project-top"><div class="project-icon">&lt;/&gt;</div><span class="project-tag">Programming</span></div><h3>Programming Practice</h3><p>Coding exercises and data structure implementations to strengthen programming fundamentals and problem-solving skills.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="interests" style="background:var(--surface-soft)">
+      <div class="wrap reveal"><div class="section-head"><div class="kicker">Beyond the code</div><h2>Things that inspire me.</h2><p class="lead">I’m curious about what technology can do — and I love making space for creativity, too.</p></div>
+        <div class="interest-grid"><span class="pill">✦ Web Development</span><span class="pill">✧ Artificial Intelligence</span><span class="pill">⌘ Software Development</span><span class="pill">◈ Creative Designing</span><span class="pill">✎ Drawing</span><span class="pill">↗ Learning New Technologies</span></div>
+      </div>
+    </section>
+    <section class="section"><div class="wrap reveal"><div class="objective"><div class="kicker">Where I’m headed</div><h2>Building skills today for the solutions of tomorrow.</h2><p>My goal is to become a skilled software professional by continuously improving my technical knowledge, developing innovative projects and gaining practical experience.</p></div></div></section>
+    <section class="section" id="contact"><div class="wrap reveal"><div class="section-head"><div class="kicker">Let’s connect</div><h2>Have an idea? Say hello.</h2><p class="lead">I’m always happy to connect, learn from others and explore opportunities to build something meaningful.</p></div>
+      <div class="contact-grid"><div class="contact-card"><span class="contact-icon">✉</span><div><small>Email</small><strong>your.email@example.com</strong></div></div><div class="contact-card"><span class="contact-icon">⌘</span><div><small>GitHub</small><strong>github.com/your-username</strong></div></div></div>
+      <p style="color:var(--muted);font-size:.82rem;margin-top:14px">Replace the sample email and GitHub address with your own details.</p>
+    </div></section>
+  </main>
+  <footer><div class="wrap footer-inner"><span>© <span id="year">2026</span> Sreelakshmi.S. Made with curiosity and care.</span><a href="#home">Back to top ↑</a></div></footer>
+</div>
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+menuBtn.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(open));
+});
+navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  menuBtn.setAttribute('aria-expanded', 'false');
+}));
+document.getElementById('year').textContent = new Date().getFullYear();
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+</script>
+</body>
+</html>
